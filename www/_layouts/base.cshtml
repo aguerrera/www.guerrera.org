@@ -4,15 +4,5 @@
     <div class="content">
         @Model.Content
     </div>
-    <div>
-        @if (Model.NextPage != null)
-        {
-            <a href="/@Model.NextPage.Url">@Model.NextPage.Title</a>
-        }        
-        @if (Model.PrevPage != null)
-        {
-            <a href="/@Model.PrevPage.Url">@Model.PrevPage.Title</a>
-        }        
-    </div>
 </body>
 </html>
