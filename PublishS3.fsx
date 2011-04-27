@@ -11,7 +11,7 @@ open Garoozis
 let configSource = __SOURCE_DIRECTORY__ + @"\config.js"
 let config = Garoozis.Utils.get_config(configSource)
 
-Garoozis.Transformer.Build(config)
+Garoozis.RemoteStorage.PublishToS3(config)
 
-printfn "DONE building www.guerrera.org.  Press any key to end."
+printfn "DONE POSTING www.guerrera.org.  Press any key to end."
 Console.ReadKey()
