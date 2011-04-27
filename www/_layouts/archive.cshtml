@@ -4,9 +4,9 @@
 	<!--[if lt IE 8]>
 		<link href="/static/blueprint/ie.css")" rel="stylesheet" type="text/css" />
 	<![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/site.css"> 
+    <link rel="stylesheet" type="text/css" href="/static/site.css">
 	<link rel="alternate" href="http://www.guerrera.org/rss.xml" title="A. Guerrera" type="application/rss+xml" /> 
-    <title>@Model.Title</title>
+	<title>@Model.Title</title>
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,19 @@
             <h1><a href="http://www.guerrera.org/">Andy Guerrera / www.guerrera.org</a></h1>
         </div>
         <div class="content">
-        @Model.Content
+            <div>
+            @Model.Content
+            </div>
+
+            @{
+                var posts = Model.Posts.OrderByDescending(x => x.Created);
+            }
+            <ul>
+            @foreach (var post in posts) 
+            {
+                <li><a href="/@post.Url">@post.Title</a></li>
+            }
+            </ul>
         </div>
         <div class="footer">
             All content &copy Andy Guerrera

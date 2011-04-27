@@ -10,5 +10,8 @@ open Garoozis
 
 let configSource = __SOURCE_DIRECTORY__ + @"\config.js"
 let config = Garoozis.Utils.get_config(configSource)
-Garoozis.Transformer.Build config.OutputDir config.SourceDir
+
+Garoozis.Transformer.Build(config)
 Garoozis.RemoteStorage.PublishToS3(config)
+
+Console.ReadKey()

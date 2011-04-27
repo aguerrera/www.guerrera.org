@@ -14,7 +14,27 @@
             <h1><a href="http://www.guerrera.org/">Andy Guerrera / www.guerrera.org</a></h1>
         </div>
         <div class="content">
-        @Model.Content
+            <div class="post">
+                <h2><a href="/@Model.Page.Url">@Model.Title</a></h2>
+                <div class="date">@Model.Page.Created.ToString("d MMM yyyy H:mm")</div>
+                <div class="postcontent">
+                    @Model.Content
+                </div>
+            </div>
+            <div class="pager">
+            @if (Model.NextPost.Title != "")
+            {
+                <span class="next">Next: <a href="/@Model.NextPost.Url">@Model.NextPost.Title</a></span>
+            }
+            @if (Model.PrevPost.Title != "")
+            {
+                @if (Model.NextPost.Title != "")
+                {
+                <span> | </span>
+                }
+                <span class="prev">Prev: <a href="/@Model.PrevPost.Url">@Model.PrevPost.Title</a></span>
+            }
+            </div>
         </div>
         <div class="footer">
             All content &copy Andy Guerrera

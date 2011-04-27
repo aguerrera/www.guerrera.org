@@ -14,7 +14,21 @@
             <h1><a href="http://www.guerrera.org/">Andy Guerrera / www.guerrera.org</a></h1>
         </div>
         <div class="content">
-        @Model.Content
+            <div>
+            @Model.Content
+            </div>
+
+            @{
+                var posts = Model.Posts.OrderByDescending(x => x.Created).Take(3);
+            }
+            @foreach (var post in posts) 
+            {
+            <div class="post">
+                <h2><a href="/@post.Url">@post.Title</a></h2>
+                <div class="date">@post.Created.ToString("d MMM yyyy H:mm")</div>
+                <div class="postcontent">@post.Content</div>
+            </div>
+            }
         </div>
         <div class="footer">
             All content &copy Andy Guerrera
