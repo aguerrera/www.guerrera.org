@@ -18,7 +18,6 @@
             <div>
             @Model.Content
             </div>
-
             @{
                 var posts = Model.Posts.OrderByDescending(x => x.Created).Take(3);
             }
