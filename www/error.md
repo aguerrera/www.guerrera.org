@@ -1,8 +1,7 @@
 {
-  title: "Guerrera.org",
+  title: "Guerrera.org -- Something is Wrong",
   layout: "base"
 }
 
 
-
-Guerrera.Org Error
+Something wrong!  Go [home](/index.html)

@@ -1,5 +1,5 @@
 {
-  title: "Archive",
+  title: "Guerrera.org -- Archive",
   layout: "archive"
 }
 
