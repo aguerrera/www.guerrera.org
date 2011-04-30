@@ -6,5 +6,16 @@ body
     background-color: #fff;
 }
 
+
+
+h1 a { color:#101010;text-decoration:none; }
+h2 a { color:#404040; }
+
+
+
+.post { margin-top:10px;margin-bottom:10px }
 .post h2 { margin:0px; }
 .post .date { font-style:italic; }
+.header { border-bottom: 2px solid #8B87FF;}
+.subheader {font-style:italic; border-bottom: 2px solid #8B87FF;margin-bottom:10px;}
+.footer { border-top: 2px solid #8B87FF;margin-top:15px;margin-bottom:20px;}

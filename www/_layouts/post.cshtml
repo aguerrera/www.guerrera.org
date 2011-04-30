@@ -10,30 +10,32 @@
 </head>
 <body>
     <div class="container">
-        <div class="header clear">
-            <div class="span-21"><h1><a href="http://www.guerrera.org/">Andy Guerrera</a></h1></div>
-            <div class="span-2"><img src="/static/owl.png" /></div>
+        <div class="header">
+            <span class="span-21"><h1><a href="http://www.guerrera.org/">Andy Guerrera</a></h1></span>
+            <span class="span-2"><img src="/static/owl.png" /></span>
+			<div class="clear"></div>
         </div>
+		<div class="subheader">Personal Blog/Website of Andy Guerrera</div>
         <div class="content clear">
             <div class="post">
                 <h2><a href="/@Model.Page.Url">@Model.Title</a></h2>
-                <div class="date">@Model.Page.Created.ToString("d MMM yyyy H:mm")</div>
+                <div class="date">@Model.Page.Created.ToString("d MMM yyyy H:mm") EST</div>
                 <div class="postcontent">
                     @Model.Content
                 </div>
             </div>
             <div class="pager">
-            @if (Model.NextPost.Title != "")
-            {
-                <span class="next">Next: <a href="/@Model.NextPost.Url">@Model.NextPost.Title</a></span>
-            }
             @if (Model.PrevPost.Title != "")
             {
-                @if (Model.NextPost.Title != "")
+                <span class="prev">Previously: <a href="/@Model.PrevPost.Url">@Model.PrevPost.Title</a></span>
+            }
+            @if (Model.NextPost.Title != "")
+            {
+                @if (Model.PrevPost.Title != "")
                 {
                 <span> | </span>
                 }
-                <span class="prev">Prev: <a href="/@Model.PrevPost.Url">@Model.PrevPost.Title</a></span>
+                <span class="next">Next: <a href="/@Model.NextPost.Url">@Model.NextPost.Title</a></span>
             }
             </div>
         </div>
