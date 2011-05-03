@@ -1,7 +1,2 @@
 config.js
- .deps
- .libs
- *~
-+*#
-+.#*
- *.stamp
+*~
