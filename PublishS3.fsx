@@ -13,5 +13,6 @@ let config = Garoozis.Utils.get_config(configSource)
 
 Garoozis.RemoteStorage.PublishToS3(config)
 
-printfn "DONE POSTING www.guerrera.org.  Press any key to end."
-Console.ReadKey()
+printfn "DONE POSTING www.guerrera.org. "
+
+//Console.ReadKey()

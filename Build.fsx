@@ -13,5 +13,6 @@ let config = Garoozis.Utils.get_config(configSource)
 
 Garoozis.Transformer.Build(config)
 
-printfn "DONE building www.guerrera.org.  Press any key to end."
-Console.ReadKey()
+printfn "DONE building www.guerrera.org. "
+
+//Console.ReadKey()
