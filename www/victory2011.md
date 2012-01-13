@@ -23,7 +23,9 @@ h2 a { color:#404040;  }
 
 <h2>X-Mas Challenge 2011: YOU WIN!!!!!</h2>
 
-
+<p>
+Victory is yours!  The code word to collect your prize is: <b style='color:red'>CHRISTMAS SANDWICH</b>
+</p>
 <p>
 Go to Dad to redeem your prize.
 </p>
