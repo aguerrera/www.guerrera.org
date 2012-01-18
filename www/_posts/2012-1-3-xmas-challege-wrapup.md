@@ -14,10 +14,10 @@ As a prize, they get some books. This year they got a sweet Time-Life book I bou
 as well as some of these <a href="http://www.amazon.com/s/ref=nb_sb_ss_c_1_9?url=search-alias%3Dstripbooks&field-keywords=david+macaulay&x=0&y=0&sprefix=david+mac%2Caps%2C311">David Macauly</a> 
 books that I hope aren't relegated to the scrap heap of time and content.  They also got business cards.
 
-Here is the 2011 challenge.  One clue is <a href="clue2011.html">here</a>.  The final clue involved a QR code, which led them
-<a href="victory2011.html">here</a>.
+Here is the 2011 challenge.  One clue is <a href="/clue2011.html">here</a>.  The final clue involved a QR code, which led them
+<a href="/victory2011.html">here</a>.
 
-Here are <a href="/static/etc/X-MasChallenge2011.pdf">all the clues</a>.
+Here are <a href="/static/etc/x-maschallenge2011.pdf">all the clues</a>.
 
 <br>
 <br>

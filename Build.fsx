@@ -1,5 +1,5 @@
 ﻿
-#I @"c:\source\Garoozis\src\bin\debug"
+#I @"\source\Garoozis\src\bin\debug"
 #r "Garoozis.dll"
 
 open System
