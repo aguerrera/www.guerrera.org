@@ -1,6 +1,6 @@
 {
    title: "Down on the Farm",
-   layout: "post",
+   layout: "post"
 }
 
 
