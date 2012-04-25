@@ -20,7 +20,7 @@ protection for an individual.  The current system has been around for a long tim
 </p>
 
 <p>
-And yet, we are so dependent on them for vital services such as healthcare, energy services, education, entertainment, and other vital services it is important to keep the system moving forward, to protect
+And yet, we are so dependent on them for vital services such as healthcare, energy services, education, entertainment, <i>et al</i> that it is important to keep the system moving forward, to protect
 the individual, and to ensure corporations can continue to do business in a predictable manner without fear of capricious lawsuits.
 </p>
 
