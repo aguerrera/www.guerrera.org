@@ -1,6 +1,8 @@
 {
    title: "Punnet squares",
-   layout: "post"
+   layout: "post",
+   pubdate: "5/1/2011 12:29 AM"
+
 }
 
 

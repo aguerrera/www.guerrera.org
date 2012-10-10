@@ -1,6 +1,7 @@
 {
    title: "Can't hardly wait",
-   layout: "post"
+   layout: "post",
+   pubdate: "4/29/2011 11:04 PM"
 }
 
 I just noticed this.

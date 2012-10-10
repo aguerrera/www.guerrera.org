@@ -1,6 +1,7 @@
 {
    title: "Drawing with your eyes closed",
-   layout: "post"
+   layout: "post",
+   pubdate: "4/28/2011 9:45 AM"
 }
 
 One thing I like to do from time to time, every so often, is to draw things with my eyes closed.  Sometimes you have drawn a thing so many times that you can do it from 

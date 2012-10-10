@@ -1,6 +1,7 @@
 {
    title: "Navel Gazing",
-   layout: "post"
+   layout: "post",
+   pubdate: "4/29/2011 10:16 PM"
 }
 
 I'm going to sub-title this

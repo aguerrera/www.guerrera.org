@@ -1,6 +1,7 @@
 {
    title: "Garden Palantir",
    layout: "post",
+   pubdate: "2/28/2012 10:03 PM"
 }
 
 
