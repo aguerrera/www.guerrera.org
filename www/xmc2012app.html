@@ -16,20 +16,19 @@ input[type='text'] { padding:3px; width: 400px;font-size:24px;}
 button { font-size:24px;padding:5px; }
 
 .answer { display:none; }
-.step { margin-bottom:30px;}
+.step { margin-bottom:30px;display:none;}
 .wrong { font-size:28px;font-weight:bold;color:red; }
-#step1,#step2,#step3 { display:none; } 
+#step0 { display:block; } 
 #boxes table td { height:50px; } 
-#boxes table img { margin-right:5px;}
-#finalcode img { margin-right:5px;}
-
+#boxes table img , #mycodeImages img, #finalcode img { margin-right:5px;}
+#generator { }
 </style>
 
 <script>
     
-	var finalcode_text = "jingle bell dolphin moose";
-	
-	var answers = {
+    var finalcode_text = "jingle bell dolphin moose";
+    
+    var answers = {
         sanford: 'peace',
         pops: 'candy',
         fischer: 'mistletoe',
@@ -38,210 +37,239 @@ button { font-size:24px;padding:5px; }
         abby: 'ornament',
         guldin: 'blitzen'
     };
-	var num_answers = 7;
+    var num_answers = 7;
 
     $(document).ready(function () {
     });
 
-	function checkStep0Status() {
-		if ($("#password").val().trim().toLowerCase() == "xmas boogie") {
-			$("#step0").hide("fast", function() {
-				$("#step1").show("fast");
-			});
-		} else {
-			alert("Wrong!!!!");
-		}
-	}
+    function checkStep0Status() {
+        var pwd = $("#password").val().trim().toLowerCase();
+        if (pwd == "xmas boogie") {
+            $("#step0").hide("fast", function() {
+                $("#step1").show("fast");
+            });
+        } else if (pwd == "jingle bam") {
+            $("#step0").hide("fast", function() {
+                $("#generator").show("fast");
+            });
+        } else {
+            alert("Wrong!!!!");
+        }
+    }
 
     function checkStep1Status() {
-		var numCorrect = 0;
+        var numCorrect = 0;
         $("#boxes input").each(function () {
             var txt = $(this).val().trim().toLowerCase();
             var nm = $(this).attr("name");
             var ansnum = $(this).attr("answer");
             if (txt == answers[nm]) {
-				numCorrect++;
-				var imghtml = wordToImages(answers[nm]);
-				$("#answer" + ansnum).html( imghtml).show("fast");
+                numCorrect++;
+                var imghtml = wordToImages(answers[nm]);
+                $("#answer" + ansnum).html( imghtml).show("fast");
             } else if (txt != "") {
-				$("#answer" + ansnum).html("<span class='wrong'>WRONG!!!</span>").show("fast");
+                $("#answer" + ansnum).html("<span class='wrong'>WRONG!!!</span>").show("fast");
             } else {
-				$("#answer" + ansnum).html("").hide();
-			}
+                $("#answer" + ansnum).html("").hide();
+            }
         });
-		
-		if (numCorrect == num_answers) {
-			$("#finalcode").html( wordToImages(finalcode_text)); 
-			$("#step2").show("fast");
-		}
+        
+        if (numCorrect == num_answers) {
+            $("#finalcode").html( wordToImages(finalcode_text)); 
+            $("#step2").show("fast");
+        }
     }
 
     function checkFinalStepStatus() {
         var txt = $("#finalanswer").val().trim().toLowerCase();
         if (txt == finalcode_text) {
-			$("#step1").hide("fast");
-			$("#step2").hide("fast", function() {
-				$("#step3").show();
-			});
+            $("#step1").hide("fast");
+            $("#step2").hide("fast", function() {
+                $("#step3").show();
+            });
         } else {
             alert('not even close!!!!!')
         }
     }
-	
-	function wordToImages(word) {
-		var s = "";
-		for (var i = 0; i < word.length; i++) {
-			var w = word[i];
-			if (w == ' ') w = 'space';
-			s += "<img src='static/xmc2012code/" + w + ".png'>";
-		}
-		return s;
-	}
-	
-	function showEverything() {
-		$("#step1,#step2,#step3").show();
-	}
-	
+    
+    function wordToImages(word) {
+        var s = "";
+        word = word.trim().toLowerCase();
+        for (var i = 0; i < word.length; i++) {
+            var w = word[i];
+            if (w < 'a' || w > 'z') w = 'space';
+            s += "<img src='static/xmc2012code/" + w + ".png'>";
+        }
+        return s;
+    }
+    
+    function showEverything() {
+        $("#step1,#step2,#step3,#generator").show();
+    }
+
+    function makeCipher() {
+        var h = wordToImages($("#mycode").val().trim().toLowerCase());
+        $("#mycodeImages").html(h);
+    }
+    
 
 </script>
 
 <h1>The XMas Challenge 2012 App</h1>
 
 <div id="step0" class="step">
-	<p>First off, HUZZAAH!!!</p>
-	<p>
-	So, you've found the page, but this isn't the end yet skippy.  Now you need to finish the "Xmas Challenge 2012 App" (henceforth abbreviated to "the app").
-	</p>
+    <p>First off, HUZZAAH!!!</p>
+    <p>
+    So, you've found the page, but this isn't the end yet skippy.  Now you need to finish the "Xmas Challenge 2012 App" (henceforth abbreviated to "the app").
+    </p>
 
-	<b>Enter the password to continue</b><br>
-	<input type="text" id="password" name="password" placeholder="hmmmm...??">
-	<p>
-		<button onclick="checkStep0Status();">Ready, set, go!</button>
-	</p>
+    <b>Enter the password to continue</b><br>
+    <input type="text" id="password" name="password" placeholder="hmmmm...??">
+    <p>
+        <button onclick="checkStep0Status();">Ready, set, go!</button>
+    </p>
 </div>
+
+<div id="generator" class="step">
+    <p>You can enter the password 'jingle bam' you will be shown the code-generator.</p>
+    <p>
+    If you want to enter your own code, enter it below and then click 'Encode it'.
+    </p>
+    <input type="text" id="mycode" name="mycode" placeholder="what do you want to say?">
+
+    <p>
+    <button onclick="makeCipher()">Encode it</button>
+    </p>
+
+    <div id="mycodeImages">
+    
+    </div>
+
+
+</div>
+
 
 <div id="step1" class="step">
 
-	<p>To complete step 1 of "the app", you need to fill in the below boxes with the code words given to you by the following people:</p>
-	<div id="boxes">
+    <p>To complete step 1 of "the app", you will need to contact the following families and then enter the code word given to you.  Click the 'Check answers' button after you enter a code word.</p>
+    <div id="boxes">
 
-		<table cellpadding="2" cellspacing="5">
-			<tr>
-				<td>
-					Grandma Nancy & Grampa Dale:<br>
-					<input type="text" answer="1" id="sanford" name="sanford" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer1"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Pops:<br>
-					<input type="text" answer="2" id="pops" name="pops" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer2"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					The Fischers:<br>
-					<input type="text" answer="3" id="fischer" name="fischer" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer3"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Nama:<br>
-					<input type="text" answer="4" id="nama" name="nama" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer4"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					The Guerreras:<br>
-					<input type="text" answer="5" id="guerrera" name="guerrera" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer5"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Abby & Matt:<br>
-					<input type="text" answer="6" id="abby" name="abby" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer6"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					The Guldins:<br>
-					<input type="text" answer="7" id="guldin" name="guldin" placeholder="hmmmm...??">
-				</td>
-				<td>
-					<div class="answer" id="answer7"></div>
-				</td>
-			</tr>
-		
-		</table>
-		
-		<p>
-			<button onclick="checkStep1Status();">Check your answers!</button>
-		</p>
-	</div>
+        <table cellpadding="2" cellspacing="5">
+            <tr>
+                <td>
+                    Grandma Nancy & Grampa Dale:<br>
+                    <input type="text" answer="1" id="sanford" name="sanford" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer1"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Pops:<br>
+                    <input type="text" answer="2" id="pops" name="pops" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer2"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The Fischers:<br>
+                    <input type="text" answer="3" id="fischer" name="fischer" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer3"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nama:<br>
+                    <input type="text" answer="4" id="nama" name="nama" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer4"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The Guerreras:<br>
+                    <input type="text" answer="5" id="guerrera" name="guerrera" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer5"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Abby & Matt:<br>
+                    <input type="text" answer="6" id="abby" name="abby" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer6"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The Guldins:<br>
+                    <input type="text" answer="7" id="guldin" name="guldin" placeholder="hmmmm...??">
+                </td>
+                <td>
+                    <div class="answer" id="answer7"></div>
+                </td>
+            </tr>
+        
+        </table>
+        
+        <p>
+            <button onclick="checkStep1Status();">Check your answers!</button>
+        </p>
+    </div>
 </div>
 
 <div id="step2" class="step">
-	<p>
-	Okay, here it is.  What does this say?
-	</p>
-	<div id="finalcode">
-	
-	</div>
-	
-	<p>
-	What is your final answer?  Remember, if you get this wrong then you lose everything!  In fact, you may owe <b>me</b> money.  Do you like apples? <i>What do you think of these apples?</i>
-	</p>
-	<p>
-	I may or may not be kidding.  I probably am. Okay, I'm kidding. Anyway, what's your final answer?  Enter your answer, and then click that button that says 'I present my final answer!' to present your final answer.
-	</p>
-	<input type="text" id="finalanswer" name="finalanswer" placeholder="WHAT IS YOUR FINAL ANSWER!">
+    <p>
+    Okay, here it is.  To complete step 2, and to conquer the XMas Challenge 2012, please figure out what this says:
+    </p>
+    <div id="finalcode">
+    
+    </div>
+    
+    <p>
+    What is your final answer?  Remember, if you get this wrong then you lose everything!  In fact, you may owe <b>me</b> money.  Do you like apples? <i>What do you think of these apples?</i>
+    </p>
+    <p>
+    I may or may not be kidding.  I probably am. Okay, I'm kidding. Anyway, what's your final answer?  Enter your answer, and then click that button that says 'I present my final answer!' to present your final answer.
+    </p>
+    <input type="text" id="finalanswer" name="finalanswer" placeholder="WHAT IS YOUR FINAL ANSWER!">
 
-	<p>
-	<button onclick="checkFinalStepStatus()">I present my final answer!</button>
-	</p>
+    <p>
+    <button onclick="checkFinalStepStatus()">I present my final answer!</button>
+    </p>
 
-	<p></p>
-	
+    <p></p>
+    
 
 </div>
 
 <div id="step3" class="step">
-	<p style="font-size:36px">
-	The treasure is in the <span style='color:red'>back of the van</span>.  Great job!  Collect your certificate of achievement and don't forget to read <i>Dad's Book of Life</i>, 2012 edition.
-	</p>
-	<p>
-	And here is the cipher key:
-	</p>
-	<div>
-		<img src="static/xmc2012code/abcdefghi-letters.png">
-		<img src="static/xmc2012code/jklm-letters.png">
-		<img src="static/xmc2012code/nopqrstuv-letters.png">
-		<img src="static/xmc2012code/wxyz-letters.png">
-	</div>
+    <p style="font-size:36px">
+    The treasure is in the <span style='color:red'>back of the van</span>.  Great job!  Collect your certificate of achievement and don't forget to read <i>Dad's Book of Life</i>, 2012 edition.
+    </p>
+    <p>
+    And here is the cipher key:
+    </p>
+    <div>
+        <img src="static/xmc2012code/abcdefghi-letters.png">
+        <img src="static/xmc2012code/jklm-letters.png">
+        <img src="static/xmc2012code/nopqrstuv-letters.png">
+        <img src="static/xmc2012code/wxyz-letters.png">
+    </div>
 
-	<p></p>
-	<p></p>
-	<p></p>
-	<p></p>
-	<button onclick="showEverything()">Show Everything</button>
+    <p></p>
+    <p></p>
+    <p></p>
+    <button onclick="showEverything()">Show Everything</button>
 
 </div>
 
