@@ -18,8 +18,8 @@ Now, lets say you do want to teach kids programming.  What I do is try to teach 
 2. Launching a Python REPL or Excel (a *great* problem solving tool) and figuring out how to solve a math problem from school, or coming up with our own situational problem and solving that.  Time/Distance/Velicoty problems are a great way to teach algorithmic problem solving (programming, and algebra, and calculus, and physics, etc).  Kids of all ages understand speed and sort of distance, so its a good place to start.  If you have a particular geeky kid, you can probably throw in a circuit problem.  But know your audience.  Sports statistics or Pokemon cards could also be a good source of numbers.
 
 <em>
-(Digression: Python 3 is syntatically big step back in terms of usability for teaching kids to program!  For example, change from 'print "item"' to 'print("item")' is a gigantic step back in teaching usability.  I spend more time explaining syntax than explaining what the program is doing.)</em>
+(Digression: Python 3 is syntatically big step back in terms of usability for teaching kids to program!  For example, change from 'print "item"' to 'print("item")' is a gigantic step back in teaching usability.  I spend more time explaining syntax than explaining what the program is doing. )</em>
 
-(Digression digression: In fact, I can't think of any syntactically good programming language for teaching younguns.  Fortran and Visual Basic are to me the best candidates, but Python is what I use.  Python 2.x was fine, so long as you stick to long procedures and avoid objects and functions. Admit it, GOTO is a way better starting tool than functions.)
+(Digression digression: In fact, I can't think of any syntactically good programming language for teaching younguns.  Fortran and Visual Basic are to me the best candidates, but Python is what I use.  Even though the looping constructs are less than ideal for learners.  'for i in range(0,10)'? Come on.   Python 2.x was fine, so long as you stick to long procedures and avoid objects and functions. Admit it, GOTO is a way better starting tool than functions.)
 	 
 
