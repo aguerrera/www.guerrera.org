@@ -10,17 +10,18 @@ body
 .container { width: 840px; margin:auto;border-left:4px double #8B87FF;border-right:4px double #8B87FF;} 
 .header { padding:12px; border-bottom: 1px solid #8B87FF;height:60px;}
 .header .name { float:left;margin:0px; }
+.header .name h1 { margin:0px; }
 .header .logo { float:right; }
 .header h1 { font-size:48px; }
 .header h1 a { color:#101010;text-decoration:none; }
 .subheader {font-size:12px;font-style:italic; border-bottom: 1px solid #8B87FF;margin-bottom:12px;padding:6px;}
-.content {line-height:1.3em;padding:12px; }
+.content {line-height:1.5em;padding:24px; }
 .content li {
    list-style-type: disc;
    margin-left: 24px;
    list-style: disc outside none;
 }
-.content p { margin-bottom:12px;margin-top:12px;}
+.content p { margin-bottom:18px;margin-top:12px;}
 .post { margin-top:12px;margin-bottom:48px;clear:both; }
 .post h2 { margin-bottom:12px;font-size:24px; }
 .post h2 a { color:#404040;  }
