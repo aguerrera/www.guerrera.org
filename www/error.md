@@ -1,6 +1,6 @@
 {
   title: "Guerrera.org -- Something is Wrong",
-  layout: "base"
+  layout: "index"
 }
 
 

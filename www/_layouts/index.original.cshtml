@@ -10,6 +10,7 @@
     <div class="container">
         <div class="header">
             <div class="name"><h1><a href="http://www.guerrera.org/">guerrera.org</a></h1></div>
+            <div class="logo"><img src="/static/owl.png" /></div>
 			<div class="clear"></div>
         </div>
 		<div class="subheader">Personal Blog/Website of Andy Guerrera</div>
@@ -17,6 +18,21 @@
             <div>
             @Model.Content
             </div>
+            @{
+                var posts = Model.Posts.OrderByDescending(x => x.Created).Take(5);
+            }
+            @foreach (var post in posts) 
+            {
+            <div class="post">
+                <h2><a href="/@post.Url">@post.Title</a></h2>
+                <div class="date">@post.Created.ToString("d MMM yyyy H:mm") EST</div>
+                <div class="postcontent">@post.Content</div>
+            </div>
+            }
+
+            <p>
+                <a href="/archive.html">Older posts</a>
+            </p>
         </div>
 
         <div class="footer">
@@ -24,7 +40,13 @@
             |
             <a href="http://twitter.com/aguerrera">Twitter</a>
             |
-            <a href="https://github.com/aguerrera">GitHub</a>
+            <a href="/archive.html">Archive</a>
+            |
+            <a href="http://www.guerrera.org/rss.xml">RSS</a>
+            |
+            <a href="/about.html">About</a>
+            |
+            Static HTML built with <a href="https://github.com/aguerrera/Garoozis">Garoozis</a>
         </div>
     </div>
 	<script type="text/javascript"> 
